@@ -4,15 +4,87 @@
 ## @yasuhito
 
 
-!SLIDE small
+!SLIDE 
+# Hello Trema ##################################################################
+
+
+!SLIDE commandline
 # Hello Trema ##################################################################
 
 	@@@ ruby
-	class HelloController < Controller
-	  def switch_ready dpid
-	    info "Hello %#x from #{ ARGV[ 0 ] }!" % dpid
+	# hello.rb
+	class Hello < Controller
+	  def start
+	    info "Hello Trema!"
 	  end
 	end
+
+
+	$ trema run hello.rb
+	Hello Trema!
+
+
+!SLIDE bullets small
+# Controller Class #############################################################
+
+	@@@ ruby
+	# Controller クラスを継承した Foo クラス
+	class Foo < Controller
+	  # ...
+	end
+
+* コントローラはクラスとして定義し、Controller クラスを継承する
+
+
+!SLIDE bullets small
+# Event Handlers ###############################################################
+
+	@@@ ruby
+	# コントローラの起動時に呼ばれるハンドラ start を定義
+	class Foo < Controller
+	  def start
+	    # ...
+	  end
+	end
+
+* ハンドラをメソッドとして書いておくと、イベント到着時にディスパッチされる
+
+
+!SLIDE bullets small
+# Logging API ##################################################################
+
+	@@@ ruby
+	# ログを適切な場所に出力
+	class Foo < Controller
+	  def start
+	    info "Hello Trema!"
+	  end
+	end
+
+
+* ロギング API (debug, info,... など)
+* ログはディレクトリ xyz に保存される
+* 詳しくは "trema ruby" で API ドキュメントを
+
+
+!SLIDE 
+# Hello Switch #################################################################
+
+
+!SLIDE commandline
+# Hello Switch #################################################################
+
+	@@@ ruby
+	# hello-switch.rb
+	class HelloSwitch < Controller
+	  def switch_ready dpid
+	    info "Hello #{ dpid.to_hex }!"
+	  end
+	end
+
+
+	$ trema run hello-switch.rb
+	Hello Trema!
 
 
 !SLIDE smaller
