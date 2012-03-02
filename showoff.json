@@ -1,1 +1,8 @@
-{ "name": "My Preso", "sections": [ {"section":"one"} ]}
+{
+    "name": "Trema Tutorial (GEC13)",
+    "sections": [
+        {"section":"intro"},
+        {"section":"hello_trema"},
+        {"section":"one"}
+    ]
+}
