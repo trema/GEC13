@@ -3,6 +3,7 @@
     "sections": [
         {"section":"intro"},
         {"section":"hello_trema"},
+        {"section":"hello_switch"},
         {"section":"one"}
     ]
 }
