@@ -545,6 +545,17 @@
 
 
 !SLIDE smaller
+# やってみよう: トラフィックの表示 ########################################################
+
+	$ trema run traffic-monitor.rb -c traffic-monitor.conf
+	  ...
+	
+	$ trema send_packet --source host1 --dest host2
+	$ trema send_packet --source host2 --dest host3
+	$ trema send_packet --source host3 --dest host1
+
+
+!SLIDE smaller
 # Traffic Monitor ##############################################################
 
 	@@@ ruby
@@ -571,7 +582,7 @@
 	  end
 	
 	  def flow_removed dpid, msg
-	    @counter.add msg.match.dl_src, msg.packet_count, msg.byte_count
+	    @counter.add msg.match.dl_src, msg.byte_count
 	  end
 	
 	  private
@@ -590,8 +601,8 @@
 	
 	  def show_counter
 	    puts Time.now
-	    @counter.each_pair do | mac, counter |
-	      puts "#{ mac } #{ counter[ :packet_count ] } packets (#{ counter[ :byte_count ] } bytes)"
+	    @counter.each_pair do | mac, nbytes |
+	      puts "#{ mac } #{ nbytes } bytes"
 	    end
 	  end
 	
@@ -607,9 +618,26 @@
 	  # ...
 	end
 
+!SLIDE commandline
+## TODO: コードの説明 ##############################################################
+
+### @counter
+### flow_removed
+### hard_timeout
+### Match.new
+### show_counter
+
 
 !SLIDE
 # まとめ ##########################################################################
+
+
+!SLIDE
+# 今日説明しなかったこと #############################################################
+
+
+!SLIDE
+# 情報源 ########################################################################
 
 
 !SLIDE 
