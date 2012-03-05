@@ -34,8 +34,6 @@
 	$ trema kill 0x1
 	$ trema up 0x1
 
-### TODO: trema up の実装
-
 
 <!SLIDE smaller>
 # Switch Monitor ###############################################################
