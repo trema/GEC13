@@ -12,6 +12,7 @@
         {"section" : "hello_trema"},
         {"section" : "hello_switch"},
         {"section" : "switch_monitor"},
+        {"section" : "packetin-dumper"},
         {"section" : "one"}
     ]
 }
