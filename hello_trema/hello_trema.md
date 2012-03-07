@@ -36,14 +36,10 @@
 	  packet_in::HelloTrema state_notify::HelloTrema \
 	  vendor::HelloTrema
 	Hello Trema!
-	^C
-	terminated
-	Shutting down switch_manager...
-	kill 29703 2>/dev/null
 
 * 動作に必要なデーモンやプロセスをいろいろと起動
 * Ctrl-c ですべてを停止
-* `trema run` は Trema 内部の複雑さをユーザから隠蔽
+* Trema 内部の複雑さをユーザから隠蔽
 
 
 <!SLIDE small transition=fadeZoom>
