@@ -193,10 +193,13 @@
 * 詳しくは API ドキュメントを参照 (`trema ruby` コマンド)
 
 
-<!SLIDE small incremental transition=uncover>
+<!SLIDE>
 # イントロを終えて #############################################################
 
-## <b>"実行速度よりも生産性"</b>
+
+<!SLIDE small incremental transition=uncover>
+# 実行速度よりも生産性 #########################################################
+
 ## Trema はいわゆる「Rails 以後」のモダンな開発環境
 
 <br />
