@@ -35,23 +35,38 @@
 * Trema は<b>フルスタック</b>: 開発はノート PC 一台で完結
 
 
-<!SLIDE commandline>
-## やってみよう: Hello Switch ######################################################
+<!SLIDE small>
+# `trema run` の裏側 ############################################################
+
+	$ trema run hello-switch.rb -c hello-switch.conf -v
+	.../trema/objects/switch_manager/switch_manager \
+	  --daemonize --port=6633 -- port_status::HelloSwitch \
+	  packet_in::HelloSwitch state_notify::HelloTrema \
+	  vendor::HelloSwitch
+	sudo .../trema/objects/openvswitch/bin/ovs-openflowd \
+	  --detach --out-of-band --fail=closed \
+	  --inactivity-probe=180 --rate-limit=40000 \
+	  --burst-limit=20000 ...
+	  ...
+
+## たしかに OpenvSwitch が起動されている
+
+
+<!SLIDE small>
+# スイッチの接続を捕捉 ###############################################################
+
+
+<!SLIDE>
+# `hello-switch.rb` ############################################################
 
 	@@@ ruby
-	# hello-switch.rb
 	class HelloSwitch < Controller
 	  def switch_ready dpid
 	    info "Hello #{ dpid.to_hex }!"
 	  end
 	end
-	
-	# hello-switch.conf
-	vswitch { dpid "0xabc" }    	
 
-
-	$ trema run hello-switch.rb -c hello-switch.conf
-	Hello 0xabc!
+### Hello Trema とほとんど同じで簡単!
 
 
 <!SLIDE small>
@@ -59,8 +74,7 @@
 
 	@@@ ruby
 	class HelloSwitch < Controller
-	  # スイッチが接続すると呼ばれる
-	  def switch_ready dpid
+	  def switch_ready dpid  # スイッチが接続すると呼ばれる
 	    info "Hello #{ dpid.to_hex }!"
 	  end
 	end
@@ -70,32 +84,8 @@
 * `.to_hex` で 16 進形式の文字列に変換
 
 
-<!SLIDE smbullets commandline>
-## Network DSL #################################################################
-
-### 設定ファイルとしてネットワーク構成を記述
-### (仮想スイッチ、仮想ホスト、仮想リンク)
-
-	@@@ ruby
-	# hello-switch.conf
-	vswitch { dpid "0xabc" }    	
-
-	$ trema run hello-switch.rb -c hello-switch.conf
-	Hello 0xabc!
-
-
 <!SLIDE small>
-# ポイント: Trema はフルスタック #######################################################
-
-* Trema には開発に必要なツールがすべて入っている
-* OpenFlow スイッチを持っていなくても、ノート PC 一台で開発やデバッグができる
-* スイッチを持っている人にとっても、便利な機能
-
-
-<!SLIDE commandline>
-## 課題: スイッチを増やそう ###########################################################
-
-### スイッチを増やして hello-switch.rb を起動するとどうなる？
+# 課題: スイッチを増やしてみよう ########################################################
 
 	@@@ ruby
 	# hello-switch.conf
@@ -106,7 +96,7 @@
 
 
 	$ trema run hello-switch.rb -c hello-switch.conf
-	Hello 0x1!
-	Hello 0x2!
-	Hello 0x3!
-	  ...
+	???
+
+* スイッチを増やして hello-switch.rb を起動するとどうなる？
+* 注: スイッチの dpid は一意にしてください
