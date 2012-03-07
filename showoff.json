@@ -15,6 +15,7 @@
         {"section" : "packetin-dumper"},
         {"section" : "intermission"},
         {"section" : "learning_switch"},
+        {"section" : "traffic_monitor"},
         {"section" : "one"}
     ]
 }
