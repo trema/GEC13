@@ -15,6 +15,25 @@
 
 
 <!SLIDE small>
+# `trema run` の裏側 ############################################################
+
+	$ trema run hello-trema.rb -v
+	.../trema/objects/switch_manager/switch_manager \
+	  --daemonize --port=6633 -- port_status::HelloTrema \
+	  packet_in::HelloTrema state_notify::HelloTrema \
+	  vendor::HelloTrema
+	Hello Trema!
+	^C
+	terminated
+	Shutting down switch_manager...
+	kill 29703 2>/dev/null
+
+* `trema run` は Trema 内部の複雑さを隠蔽
+* スイッチとの接続に必要なすべてのデーモンを起動
+* Ctrl-c ですべて停止
+
+
+<!SLIDE small>
 # コントローラの書き方の基本
 
 

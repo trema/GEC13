@@ -10,7 +10,7 @@
 # Today's Goal #################################################################
 
 * 「トラフィック監視付きスイッチ」を OpenFlow で実現
-* Trema を使った開発がひととおり身に付きます
+* Trema を使った開発手法を身に付けよう
 
 
 <!SLIDE small incremental transition=fade>
