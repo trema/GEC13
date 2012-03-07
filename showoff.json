@@ -12,7 +12,7 @@
         {"section" : "hello_trema"},
         {"section" : "hello_switch"},
         {"section" : "switch_monitor"},
-        {"section" : "packetin-dumper"},
+        {"section" : "packetin_dumper"},
         {"section" : "intermission"},
         {"section" : "learning_switch"},
         {"section" : "traffic_monitor"},
