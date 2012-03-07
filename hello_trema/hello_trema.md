@@ -1,21 +1,34 @@
-<!SLIDE commandline>
-## やってみよう: Hello Trema! ##################################################
+<!SLIDE small transition=toss>
+# さっそくやってみよう! ########################################################
+
+# 定番の Hello World
+
+
+<!SLIDE commandline transition=toss>
+# Hello Trema! #################################################################
+
+### 次のコマンドを打ち込んで Trema を動かしてみよう
 
 	$ cd Tutorials/Trema
 	$ trema run hello-trema.rb
-	Hello Trema!   (Ctrl-C to quit)
+    Password: gec13user
+	Hello Trema!   # Ctrl-C to quit
 
 
 <!SLIDE small>
 # `trema run` ##################################################################
 
-* コンパイル無しで、すぐにコントローラを起動できる
-* Ctrl-C で終了
-* 「実装 → 動作テスト → ...」のサイクルをタイトに回せる
+	$ trema run [コントローラファイル (.rb)]
+
+* コントローラを起動
+* Ctrl-c で終了
+* オプション一覧は `trema help run` を実行
 
 
 <!SLIDE small>
 # `trema run` の裏側 ############################################################
+
+## `-v` オプションを付けて実行してみると...
 
 	$ trema run hello-trema.rb -v
 	.../trema/objects/switch_manager/switch_manager \
@@ -28,16 +41,25 @@
 	Shutting down switch_manager...
 	kill 29703 2>/dev/null
 
-* `trema run` は Trema 内部の複雑さを隠蔽
-* スイッチとの接続に必要なすべてのデーモンを起動
-* Ctrl-c ですべて停止
+* 動作に必要なデーモンやプロセスをいろいろと起動
+* Ctrl-c ですべてを停止
+* `trema run` は Trema 内部の複雑さをユーザから隠蔽
 
 
-<!SLIDE small>
-# コントローラの書き方の基本
+<!SLIDE small transition=fadeZoom>
+# Run It Quick #################################################################
+
+* コマンド一発で簡単にコントローラを起動・停止
+* 書いたらすぐ実行して試せる
+* 「実装 → 動作テスト → ...」のサイクルをタイトに回せる
 
 
-<!SLIDE small>
+<!SLIDE small transition=toss>
+# Trema でのコントローラの書き方 ###############################################
+# 基本編
+
+
+<!SLIDE small transition=toss>
 # hello-trema.rb ###############################################################
 
 	@@@ ruby
@@ -47,42 +69,44 @@
 	  end
 	end
 
-## すべてのコントローラのテンプレート
+## 最も簡単な、ほとんど何もしないコントローラ
 
 
 <!SLIDE small>
-# Controller Class #############################################################
+# Controller クラス ############################################################
 
 	@@@ ruby
 	class HelloController < Controller
 	  # ...
 	end
 
-* コントローラクラスは Controller クラスを継承
-* コントローラに必要なメソッドがすべて取り込まれる
+* すべてのコントローラはクラスとして定義 (`HelloController`)
+* Controller クラスを継承
+* → 必要な機能がすべて取り込まれる
 
 
 <!SLIDE small>
-# Event Handlers ###############################################################
+# イベントハンドラ #############################################################
 
 	@@@ ruby
 	class MyController < Controller
-	  def start  # コントローラの起動時に呼ばれる
+	  def start  # 起動時のハンドラ
 	    # ...
 	  end
 	      
-	  def packet_in dpid, msg  # packet-in 到着時に呼ばれる
+	  def packet_in dpid, msg  # Packet-in 到着時のハンドラ
 	    # ...
 	  end
-      
+	
+	  # ...
 	end
 
-* 各種イベントのハンドラをメソッドとして定義
-* イベント到着時に自動的にディスパッチ
+* コントローラはイベントドリブンモデル
+* 各種イベントに対するハンドラはメソッドとして定義
 
 
 <!SLIDE small>
-# 比較: Floodlight #############################################################
+# Floodlight でのイベントハンドリング ##########################################
 
 	@@@ java
 	public Command receive(IOFSwitch sw, ...) {
@@ -94,34 +118,65 @@
 	    ...
 
 * ハンドラを明示的にディスパッチする必要がある
-* NOX も同様 ... これはとても面倒!
+* フレームワークが自動でやってくれればいいのに...
 
 
 <!SLIDE small>
-# Convention over Coding #######################################################
+# NOX Python でのイベントハンドリング ##########################################
+
+	@@@ python
+	class pyswitch(Component):
+	    ...
+	
+	    def install(self):
+	        inst.register_for_packet_in(packet_in_callback)
+	        inst.register_for_datapath_leave(datapath_leave_callback)
+	        inst.register_for_datapath_join(datapath_join_callback)
+	    ...
+
+* ハンドラを明示的に登録する必要がある
+* こういう長いのを何度も書かされるのは退屈
+
+
+<!SLIDE small>
+# 自動ディスパッチ #############################################################
 
 	@@@ ruby
-	class MyController < Controller    
-	  def packet_in dpid, msg  # これだけ!
-	    ...
+	# Trema の場合
+	class MyController < Controller
+	  def start  # 起動時に自動で呼ばれる
+	    # ...
+	  end
+	      
+	  def packet_in dpid, msg  # Packet-in 到着時に自動で呼ばれる
+	    # ...
 	  end
 	end
 
-* コーディングよりも規約
-* ディスパッチなど決まりきったコードを書かなくて済む
-* Trema の規約: 「イベントハンドラ名 = イベントの名前」
+* イベントに応じたハンドラがあれば、自動的に呼ばれる
+* ハンドラの登録やディスパッチ処理は書かなくて良い
 
 
-<!SLIDE small>
+<!SLIDE small transition=fadeZoom>
+# Convention over Coding #######################################################
+
+## Trema の設計思想: 「コーディングよりも規約」
+
+* 例: イベントハンドラ名 == イベントの名前
+* ディスパッチ処理などの定型的なコードを大幅に省ける
+* 退屈な部分を減らして楽しくプログラミング!
+
+
+<!SLIDE small transition=toss>
 # 短く書こう ###################################################################
 
-## プログラムは短く (== 少ない構文要素で) 書きたい
-
-* プログラムの短さと生産性には強い相関
-* タイプ数が少なければ、早く書けて早く読める
+* プログラムの短さ (トークン数) と生産性には強い相関
 * e.g. Arc Programming Language [Paul Graham]
+* タイプ数が少ないほど早く書けて早く読め、バグらない
 
-## Trema は速度よりも「いかに早く作れるか」に特化
+<br />
+
+## Trema は速度よりも<b>「いかに早く作れるか」</b>に特化
 
 
 <!SLIDE small>
@@ -138,9 +193,22 @@
 * 詳しくは API ドキュメントを参照 (`trema ruby` コマンド)
 
 
-<!SLIDE small transition=fade>
+<!SLIDE small incremental transition=uncover>
 # イントロを終えて #############################################################
 
-* Trema は Rails と同様の「モダン」な開発環境
-* 以降では Hello World に機能を付け足して、最終的に高機能なコントローラを作ります
-* その都度 Trema の強力な機能を使いながら説明します
+## <b>"実行速度よりも生産性"</b>
+## Trema はいわゆる「Rails 以後」のモダンな開発環境
+
+<br />
+
+* <i>Run It Quick</i>: 書いたらすぐ実行しよう
+* <i>Convention over Coding</i>: 短く書こう
+* 便利なサブコマンド群: `trema ruby` などなど
+
+
+<!SLIDE small transition=fade>
+# チュートリアルの進め方 #######################################################
+
+* Hello Trema! から出発
+* 徐々に機能を追加し、最終的に高機能なコントローラを作成
+* その都度 Trema の強力な機能を使いながら紹介
