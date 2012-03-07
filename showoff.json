@@ -1,10 +1,17 @@
 {
-    "name": "Trema Tutorial (GEC13)",
-    "sections": [
-        {"section":"intro"},
-        {"section":"hello_trema"},
-        {"section":"hello_switch"},
-        {"section":"switch_monitor"},
-        {"section":"one"}
+    "name" : "Trema Tutorial",
+    "where" : "13th GENI Engineering Conference (GEC13)",
+    "date" : "3/13/2012",
+
+    "templates" : {
+        "default" : "trema.tpl"
+    },
+
+    "sections" : [
+        {"section" : "intro"},
+        {"section" : "hello_trema"},
+        {"section" : "hello_switch"},
+        {"section" : "switch_monitor"},
+        {"section" : "one"}
     ]
 }

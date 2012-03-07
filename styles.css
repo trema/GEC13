@@ -5,3 +5,13 @@
 .smaller {
     font-size: 60%;
 }
+
+.slide_info {
+    width: 100%;
+    position: absolute;
+    bottom: 30px;
+    left: 0;
+    margin: 0 auto;
+    text-align: center;
+    z-index: 2147483647; /* max, see http://www.puidokas.com/max-z-index/ */
+}
