@@ -1,62 +1,69 @@
 <!SLIDE commandline>
-## やってみよう: Hello Trema! ######################################################
+## やってみよう: Hello Trema! ##################################################
+
+	$ cd Tutorials/Trema
+	$ trema run hello-trema.rb
+	Hello Trema!   (Ctrl-C to quit)
+
+
+<!SLIDE small>
+# `trema run` ##################################################################
+
+* コンパイル無しで、すぐにコントローラを起動できる
+* Ctrl-C で終了
+* 「実装 → 動作テスト → ...」のサイクルをタイトに回せる
+
+
+<!SLIDE small>
+# コントローラの書き方の基本
+
+
+<!SLIDE small>
+# hello-trema.rb ###############################################################
 
 	@@@ ruby
-	# hello.rb
-	class Hello < Controller
+	class HelloController < Controller
 	  def start
 	    info "Hello Trema!"
 	  end
 	end
 
-
-	$ trema run hello.rb
-	Hello Trema!
+## すべてのコントローラのテンプレート
 
 
 <!SLIDE small>
-# `trema run foo.rb` ###########################################################
-
-* コンパイル無しで、すぐにコントローラを起動できる
-* 「実装 → テスト → デバッグ → ...」のサイクルをタイトに回せる
-* ではコントローラの書き方の基本を見て行こう
-
-
-<!SLIDE bullets small>
 # Controller Class #############################################################
 
 	@@@ ruby
-	# Controller クラスを継承した Foo クラス
-	class Foo < Controller
+	class HelloController < Controller
 	  # ...
 	end
 
-## コントローラは Controller クラスを継承したクラスとして定義
+* コントローラクラスは Controller クラスを継承
+* コントローラに必要なメソッドがすべて取り込まれる
 
 
 <!SLIDE small>
 # Event Handlers ###############################################################
 
 	@@@ ruby
-	class Foo < Controller
-	  # コントローラの起動時に呼ばれる
-	  # ハンドラ start を定義
-	  def start
+	class MyController < Controller
+	  def start  # コントローラの起動時に呼ばれる
 	    # ...
 	  end
+	      
+	  def packet_in dpid, msg  # packet-in 到着時に呼ばれる
+	    # ...
+	  end
+      
 	end
 
 * 各種イベントのハンドラをメソッドとして定義
-* イベント到着時に自動的にディスパッチされる
-* イベントの種類: コントローラの起動、メッセージの受信、etc.
+* イベント到着時に自動的にディスパッチ
 
 
 <!SLIDE small>
-# ポイント: ハンドラの自動ディスパッチ ####################################################
-
-<br />
-
-## Floodlight ではハンドラの明示的なディスパッチが煩雑...
+# 比較: Floodlight #############################################################
 
 	@@@ java
 	public Command receive(IOFSwitch sw, ...) {
@@ -67,37 +74,54 @@
 	private Command handlePacketIn(IOFSwitch sw, ...) {
 	    ...
 
-## Trema ではハンドラを書くと自動的に登録される!
+* ハンドラを明示的にディスパッチする必要がある
+* NOX も同様 ... これはとても面倒!
+
+
+<!SLIDE small>
+# Convention over Coding #######################################################
 
 	@@@ ruby
-	class Foo < Controller    
+	class MyController < Controller    
 	  def packet_in dpid, msg  # これだけ!
 	    ...
 	  end
 	end
 
+* コーディングよりも規約
+* ディスパッチなど決まりきったコードを書かなくて済む
+* Trema の規約: 「イベントハンドラ名 = イベントの名前」
+
 
 <!SLIDE small>
-# Trema の設計思想 ###############################################################
+# 短く書こう ###################################################################
 
-## 同じ処理をより短く (== 少ない構文要素数で) 書けるように
+## プログラムは短く (== 少ない構文要素で) 書きたい
 
 * プログラムの短さと生産性には強い相関
+* タイプ数が少なければ、早く書けて早く読める
 * e.g. Arc Programming Language [Paul Graham]
-* 実行速度よりも「いかに早く作れるか」に特化
+
+## Trema は速度よりも「いかに早く作れるか」に特化
 
 
 <!SLIDE small>
 # Logging API ##################################################################
 
 	@@@ ruby
-	class Foo < Controller
+	class HelloController < Controller
 	  def start
-	    # ログを適切な場所に出力
-	    info "Hello Trema!"
+	    info "Hello Trema!"	 # info レベルのメッセージを出力
 	  end
 	end
 
 * ロギング API (debug, info,... など)
-* ログはディレクトリ xyz に保存される
 * 詳しくは API ドキュメントを参照 (`trema ruby` コマンド)
+
+
+<!SLIDE small transition=fade>
+# イントロを終えて #############################################################
+
+* Trema は Rails と同様の「モダン」な開発環境
+* 以降では Hello World に機能を付け足して、最終的に高機能なコントローラを作ります
+* その都度 Trema の強力な機能を使いながら説明します
