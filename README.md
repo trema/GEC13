@@ -4,7 +4,7 @@
 	cd GEC13
 
 	# run the standard presentation
-	rake showoff serve
+	showoff serve
 
 This will launch a local Sinatra server on port 9090. Open your browser to `localhost:9090`. On a Mac you can run:
 
