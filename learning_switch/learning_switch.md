@@ -37,7 +37,7 @@
 * `trema show_stats` ホスト名
 * `trema dump_flows` スイッチ名
 
-## 各種統計情報や内部情報を `trema` コマンド一発で簡単に
+## 各種統計情報や内部情報をコマンド一発で簡単に
 
 
 <!SLIDE small>
@@ -63,7 +63,7 @@
 	  # ...
 	end
 
-# 疑似コードのようにスラスラ読めますね？
+# まるで疑似コード (？)
 
 
 <!SLIDE smaller>
@@ -119,7 +119,7 @@
 
 
 <!SLIDE smaller>
-# `ExactMatch.from()` Syntactic Sugar ##########################################
+# Syntactic Sugar: `ExactMatch.from()` #########################################
 
 	@@@ ruby
 	ExactMatch.from( message )
@@ -128,7 +128,7 @@
 
 	@@@ ruby
 	Match.new(
-	  :in_port = message.in_port,
+	  :in_port => message.in_port,
 	  :nw_src => message.nw_src,
 	  :nw_dst => message.nw_dst,
 	  :tp_src => message.tp_src,
@@ -165,3 +165,12 @@
 	  inport,
 	  buf
 	)
+
+
+<!SLIDE small>
+# Learning Switch まとめ #######################################################
+
+
+* 統計情報を表示: `trema show_stats`, `trema dump_flows`
+* 短く書ける API: `ExactMatch.from`, `send_flow_mod_add`
+* 次はいよいよ最後のタスクです!
