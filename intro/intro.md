@@ -13,7 +13,7 @@
 * Trema を使ったコントローラ開発手法を身に付けよう
 
 
-<!SLIDE small incremental transition=fadeZoom>
+<!SLIDE small incremental transition=uncover>
 # Trema って何だ? ##############################################################
 
 * 生産性の高い OpenFlow フレームワーク

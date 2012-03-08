@@ -42,7 +42,7 @@
 * Trema 内部の複雑さをユーザから隠蔽
 
 
-<!SLIDE small transition=fadeZoom>
+<!SLIDE small transition=uncover>
 # Run It Quick #################################################################
 
 * コマンド一発で簡単にコントローラを起動・停止
@@ -153,7 +153,7 @@
 * ハンドラの登録やディスパッチ処理は書かなくて良い
 
 
-<!SLIDE small transition=fadeZoom>
+<!SLIDE small transition=uncover>
 # Convention over Coding #######################################################
 
 ## Trema の設計思想: 「コーディングよりも規約」
