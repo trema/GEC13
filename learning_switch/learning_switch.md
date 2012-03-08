@@ -170,7 +170,6 @@
 <!SLIDE small>
 # Learning Switch まとめ #######################################################
 
-
 * 統計情報を表示: `trema show_stats`, `trema dump_flows`
 * 短く書ける API: `ExactMatch.from`, `send_flow_mod_add`
 * 次はいよいよ最後のタスクです!
