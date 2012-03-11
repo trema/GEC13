@@ -1,5 +1,5 @@
 <!SLIDE title-slide>
-# Trema チュートリアル #########################################################
+# Trema Tutorial ###############################################################
 
 ### Yasuhito Takamiya  `@yasuhito`
 ### Yasunobu Chiba  `@chibacchie`
@@ -7,23 +7,24 @@
 
 
 <!SLIDE small transition=fade>
-# 今日の目標 ###################################################################
+# Today's Goal #################################################################
 
-* 「トラフィック監視付きスイッチ」を OpenFlow で実現
-* Trema を使ったコントローラ開発手法を身に付けよう
+* Implement "L2 switch with traffic monitoring" controller
+* Small four iterations from "Hello World" to traffic monitoring
+* Let's go through the entire cycle of OpenFlow controller development using Trema
 
 
 <!SLIDE small incremental transition=uncover>
-# Trema って何だ? ##############################################################
+# What's Trema? ################################################################
 
-* 生産性の高い OpenFlow フレームワーク
-* コントローラを短く書けて、すぐ動かせる
-* 実際に手を動かしながら生産性の高さを体験しよう
+* Highly productive OpenFlow Framework
+* <i>"Write it short, run it quickly"</i>
+* Experience its productivity through this hands-on session
 
 
 <!SLIDE small transition=wipe>
-# チュートリアル用 VM ###########################################################
+# Tutorial VM ##################################################################
 
-* パスワード: `gec13user`
-* Trema の最新版がインストール済み
-* すべてのコードは `~/Tutorials/Trema` に入っています
+* Password: `gec13user`
+* Latest Trema is installed
+* All codes are in `~/Tutorials/Trema`
