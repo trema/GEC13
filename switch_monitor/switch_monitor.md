@@ -118,8 +118,8 @@
 <!SLIDE smaller>
 # Final Code ###################################################################
 
-## Clean, not redundant, only necessary things are written.
-## Easy to read and write
+## Clean, not redundant, only necessary elements included.
+## Easy to read and write.
 
 	@@@ ruby
 	class SwitchMonitor < Controller
