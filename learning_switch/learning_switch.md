@@ -1,21 +1,21 @@
 <!SLIDE small>
 # Task D: Learning Switch ######################################################
 
-## flow\_mod と packet\_out の送信
+## Sending flow\_mod and packet\_out
 
 
 <!SLIDE smaller>
-# やってみよう: パケットの統計情報 #############################################
+# Exercise: Packet Stats Info ##################################################
 
-## L2 スイッチコントローラを起動
+## Launch an L2 switch controller:
 
 	$ trema run learning-switch.rb -c learning-switch.conf
 
 <br />
 <br />
 
-## 別ターミナルでテストパケットを送信し、
-## 送受信したパケットの統計情報を表示
+## Send a test packet on another terminal,
+## then `show_stats` to view sent/received packet stats information
 	
 	$ trema send_packet --source host1 --dest host2
 	$ trema show_stats host1
@@ -23,25 +23,25 @@
 
 
 <!SLIDE small>
-# やってみよう: フローテーブルの表示 ###########################################
+# Exercise: View Flow Table ####################################################
 
 	$ trema send_packet --source host2 --dest host1
 	$ trema dump_flows 0xabc
 
-## スイッチに書き込まれたフローエントリを表示
+## This shows the flow-table entries stored in the switch `0xabc`
 
 
 <!SLIDE small>
-# 便利なサブコマンド ###########################################################
+# Useful Sub-Commands ##########################################################
 
-* `trema show_stats` ホスト名
-* `trema dump_flows` スイッチ名
+* `trema show_stats` HOST_NAME
+* `trema dump_flows` SWITCH_NAME
 
-## 各種統計情報や内部情報をコマンド一発で簡単に
+## Various stats and internal info can be displayed with one simple command
 
 
 <!SLIDE small>
-# Learning Switch のソース #####################################################
+# Source Code: Learning Switch #################################################
 
 
 <!SLIDE smaller>
@@ -63,11 +63,11 @@
 	  # ...
 	end
 
-# まるで疑似コード (？)
+# Reads smoothly like a pseudo code!?
 
 
 <!SLIDE smaller>
-# 声に出して読もう! ############################################################
+# Read It Aloud! ###############################################################
 
 	@@@ ruby
 	class LearningSwitch < Controller
@@ -85,16 +85,17 @@
 	  # ...
 	end
 
-* パケットインが届いたら、パケットを出したホストのマックアドレスとポート番号を FDB で学習する
-* 宛先の MAC アドレスからポート番号を FDB で調べ、もしみつかった場合にはフローテーブルを書き込んでパケットアウトする
-* みつからなかったらパケットをフラッディングする
+* When a packet-in comes in, make FDB learn its macsa and in_port
+* Look up the destination's port number from packet-in's macda
+* If found: update switch's flow-table and do packet-out the packet-in message
+* If not-found: flood the packet-in message
 
 
 <!SLIDE smaller>
-# プライベートメソッド #########################################################
+# Private Methods ##############################################################
 
-* `flow_mod`, `packet_out`, `flood` は Trema API ではなく、自分で定義したプライベートメソッド
-* プライベートメソッドを適切に定義することで、コントローラのコードを疑似コード並みに分かりやすくできる
+* Actually `flow_mod`, `packet_out`, `flood` are not a part of Trema API, but are defined as user-defined private methods
+* Proper use of private methods makes your code clear like a pseudo-code
 
 
 <!SLIDE smaller>
@@ -108,14 +109,14 @@
 	    send_flow_mod_add(
 	      dpid,
 	      :match => ExactMatch.from( message ),
-	      :actions => ActionOutput.new( port_no )
+	      :actions => ActionOutput.new( port_no + 1 )
 	    )
 	  end
 	  # ...
 	end
 
-* "`message` とエグザクトマッチするパケットを `port_no` へ転送する" フローをスイッチ `dpid` に書き込む。
-* 短い
+* Echoes the packet that exactly matches with `message` to the next port
+* Short and clean
 
 
 <!SLIDE smaller>
@@ -168,8 +169,7 @@
 
 
 <!SLIDE small>
-# Learning Switch まとめ #######################################################
+# Learning Switch: Summary #####################################################
 
-* 統計情報を表示: `trema show_stats`, `trema dump_flows`
-* 短く書ける API: `ExactMatch.from`, `send_flow_mod_add`
-* 次はいよいよ最後のタスクです!
+* Stats info: `trema show_stats`, `trema dump_flows`
+* "Write it short" API: `ExactMatch.from`, `send_flow_mod_add`
