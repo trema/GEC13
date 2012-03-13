@@ -10,21 +10,28 @@
 # Today's Goal #################################################################
 
 * Implement "L2 switch with traffic monitoring" controller
-* Small four iterations from "Hello World" to traffic monitoring
+* This tutorial is composed of small four iterations starting from "Hello World"
 * Let's go through the entire cycle of OpenFlow controller development using Trema
 
 
-<!SLIDE small incremental transition=uncover>
+<!SLIDE small incremental>
 # What's Trema? ################################################################
 
-* Highly productive OpenFlow Framework
-* <i>"Write it short, run it quickly"</i>
-* Experience its productivity through this hands-on session
+* New OpenFlow programming framework in Ruby and C
+  * GPL2
+  * <http://github.com/trema/trema>
+* Designed to be highly productive for this "Post-Rails" era
+  * <i>Run It Quick</i>: Tight loop of coding, run, and debug
+  * <i>Convention over Coding</i>: Write it short
+  * <i>Integrated Unit-Testing</i>
+* Let's go through the entire cycle of development using Trema
 
 
-<!SLIDE small transition=wipe>
+<!SLIDE small>
 # Tutorial VM ##################################################################
 
-* Password: `gec13user`
-* Latest Trema is installed
 * All codes are in `~/Tutorials/Trema`
+* Latest version of Trema is installed
+* Password: `gec13user`
+
+
