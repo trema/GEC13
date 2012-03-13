@@ -1,61 +1,61 @@
 <!SLIDE small>
 # Task C: PacketIn Dumper ######################################################
 
-## いよいよ Packet-In をハンドリング
+## Handling Packet-In Messages
 
 
 <!SLIDE small>
-# やってみよう: Packet-In の表示 ###############################################
+## Exercise: Displaying Packet-In Message Dump #################################
 
 	$ trema run packetin-dumper.rb -c packetin-dumper.conf
 
-* Packet-In をダンプするコントローラを起動
-* 仮想スイッチ + 仮想ホスト host1, host2 も起動
+* Start Packet-In dumper controller
+* This also starts a virtual network (= one virtual switch + virtual hosts host1 and host2)
 
 
 <!SLIDE small>
-# やってみよう: Packet-In の表示 ###############################################
+## Exercise: Displaying Packet-In Message Dump #################################
 
 	$ trema send_packets --source host1 --dest host2
 
-* 別ターミナルで host1 → host2 にテストパケットを送信
-* → コントローラがパケットダンプを表示
+* Open an another terminal, then send a test packet from host1 to host2
+* This causes the controller to dump the packet-in message
 
 
 <!SLIDE>
-## Q: どうやってテストパケットを送ったの？ #####################################
+## Q: How did you do that (send test packets)? #################################
 
 
 <!SLIDE small>
-# 仮想ホストと仮想リンク #######################################################
+# Virtual Host And Virtual Link ################################################
 
-## 仮想スイッチ 0xabc に仮想ホスト (host1, host2) を接続
+## Connect virtual hosts (host1, host2) to the virtual switch 0xabc
 
 	@@@ ruby
-	# packetin-dumper.conf    
+	# Add one virtual switch
 	vswitch { dpid "0xabc" }
-	# 仮想ホストを 2 台定義
+	# Add two virtual hosts
 	vhost "host1"
 	vhost "host2"
-	# それぞれ仮想スイッチにつなぐ
+	# Then connect them to the switch 0xabc
 	link "0xabc", "host1"
 	link "0xabc", "host2"
 
-## 定義した仮想ホスト間でテストパケットを送信
+## Sending test packets between virtual hosts defined above
 
 	$ trema send_packets --source host1 --dest host2
 
 
 <!SLIDE small>
-# ネットワーク設定ファイル #####################################################
+# Network Configuration File ###################################################
 
-* 単純で手軽なテスト環境
-* DSL を書くだけで手軽に好きなネットワークが組める
-* コマンド一発でテストパケットを送れる
+* Simple and easy test environment
+* You can specify and construct any arbitrary network by just writing a configuration in DSL
+* Also you can send test packet by one simple command
 
 
 <!SLIDE small>
-# 課題: 複雑なネットワークを作ろう #############################################
+# Example: More Complicated Network ############################################
 
 	@@@ ruby
 	vswitch { dpid "0x1" }
@@ -76,7 +76,7 @@
 
 
 <!SLIDE>
-# Packet-In に反応する #########################################################
+# Handling Packet-In ###########################################################
 
 
 <!SLIDE smaller>
@@ -92,20 +92,12 @@
 	  end
 	end
 
-* `packet_in`: 引数は dpid と Packet-In メッセージ本体 (`message`)
-* `message.name` で Packet-In の中身を調べることができる
-
-
-<!SLIDE small>
-# PacketIn Dumper まとめ #######################################################
-
-* DSL で手軽に仮想ネットワークを組みコントローラを実行
-* コマンド一発でテストパケットを送信
-* `PacketIn#in_port` 等で Packet-In の中身を調べられる
+* `packet_in`: arguments are dpid and a Packet-In message (`message`)
+* `message.name` for inspecting the attributes of the Packet-In message
 
 
 <!SLIDE smaller>
-# 課題: Packet-In をもっと調べよう #############################################
+# Exercise: Inspecting Other Packet-In Attributes ##############################
 
 	@@@ ruby
 	# packetin-dumper.rb    
@@ -119,5 +111,5 @@
 	  end
 	end
 
-* Packet-In の中身をもっと表示してみよう (total_len, macsa, macda ...)
-* ヒント: `trema ruby` で PacketIn クラスのメソッドを調べよう
+* Display other Packet-In attributes (total_len, macsa, macda ...)
+* Hint: Use `trema ruby` for the reference of PacketIn class
