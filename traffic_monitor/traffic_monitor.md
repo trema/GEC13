@@ -35,7 +35,7 @@
 	  def flow_mod dpid, macsa, macda, out_port
 	    send_flow_mod_add(
 	      dpid,
-	      :hard_timeout => 10,  # flows lifetime == 10 seconds.
+	      :hard_timeout => 10,  # flows lifetime = 10 seconds.
 	      :match => Match.new( :dl_src => macsa, :dl_dst => macda ),
 	      :actions => ActionOutput.new( out_port )
 	    )
@@ -44,9 +44,9 @@
 	end
 
 
-* Set flows' lifetime == 10 seconds
+* Set each flow's lifetime = 10 seconds
 * Handle flow\_removed messages generated when a flow timeouts
-* Record the traffic info transferred by the removed flow into `@counter` object
+* Record the traffic mount transferred by the removed flow
 
 
 <!SLIDE smaller>

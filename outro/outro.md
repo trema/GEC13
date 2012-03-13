@@ -3,12 +3,13 @@
 
 
 <!SLIDE small incremental transition=uncover>
-# Trema: "OpenFlow on Rails" ###################################################
+# Trema: "OpenFlow like Rails" ##################################################
 
 * <i>Run It Quick</i>: Tight loops of coding, run, and debug
   * Virtual network DSL
   * `trema {run, send_packets, show_stats, up, kill}`
 * <i>Convention Over Coding</i>: Write it short
+  * Auto handler dispatch by naming convention
   * Class attributes: `periodic_timer_event`
   * Syntactic sugars: `ExactMatch.from`
   * Default options: `send_flow_mod_add`
@@ -72,7 +73,11 @@
 <!SLIDE small>
 # Contributors! ################################################################
 
-* Free Trema T-shirt: Send pull-requests and get the T!
+* Free Trema T-shirt for contributors!
+  * Patch (New features/apps, enhancements, bug-fixes)
+  * Bug report
+  * Documentation etc.
+* Send pull-requests and get the T!
 
 
 <!SLIDE>

@@ -13,9 +13,9 @@
 
 
 <!SLIDE small>
-# `trema run` ##################################################################
+# One Basic Command: `trema run` ###############################################
 
-	$ trema run [controller-file (.rb)]
+	$ trema run [controller-file]
 
 * Starts a controller process
 * Ctrl-c to quit
@@ -23,9 +23,9 @@
 
 
 <!SLIDE small>
-# Behind `trema run` ###########################################################
+# The Back Side of `trema run` #################################################
 
-## `trema run` does lots of dirty tasks in its background:
+## `trema run` does lots of tasks in the back:
 
 	$ trema run hello-trema.rb -v
 	.../trema/objects/switch_manager/switch_manager \
@@ -34,15 +34,14 @@
 	  vendor::HelloTrema
 	Hello Trema!
 
-* Spawns several daemons and processes required for controller execution
-* Ctrl-c to quit them all
+* Spawns daemons with necessary arguments required for controller execution
 * Hides the complexity of Trema internal from users
 
 
 <!SLIDE small transition=uncover>
 # Run It Quick #################################################################
 
-* Easily start and stop a controller process with one command
+* Enables the quick start/stop of controller process with one `trema run` command
 * Test your controller quickly right after coding
 * Enables the tight cycle of "Coding, test, and debug"
 
@@ -61,7 +60,7 @@
 	  end
 	end
 
-* Simplest controller and it does almost nothing
+* Simple and complete but not so much useful or interesting
 * But it shows the basic code layout of controllers in Trema
 
 
@@ -74,8 +73,8 @@
 	end
 
 * All controllers are implemented as a class (`class HelloController`)
-* Derived from Controller class
-* Derives necessary methods from the class
+* Derived from `Controller` class defined in Trema class library
+* All necessary methods for controller (flow-mod message creation etc.) are injected automatically into your class
 
 
 <!SLIDE small>
@@ -111,8 +110,8 @@
 	private Command handlePacketIn(IOFSwitch sw, ...) {
 	    ...
 
-* Needs explicit handler dispatching
-* Easily causes <i>code duplication</i> and is against <i>DRY principle</i> <br /> (Don't repeat yourself)
+* Floodlight API requires explicit handler dispatching
+* Lots of boilerplate code, this easily leads to <i>code duplication</i>
 
 
 <!SLIDE small>
@@ -135,21 +134,22 @@
 
 
 <!SLIDE small transition=uncover>
-# Don't Repeat Yourself ########################################################
+# Convention over Coding #######################################################
 
-## Philosophy of Trema: <i>Convention over Coding</i>
-
-* E.g., "Event handler name" == "Event name"
+* Coding conventions for concise and compact code
+  * e.g., "handler name" == "message name"
 * Kills boilerplate codes like event dispatching
-* Reduces boring part of programming and make it interesting
+* Reduces boring part of programming and make it fun
 
 
 <!SLIDE small transition=toss>
 # Write It Short ################################################################
 
 * There is a strong correlation between the length of code (number of tokens) and programmers' productivity
-* e.g. Arc Programming Language [Paul Graham]
-* With less typing, the faster you can read and write codes, less bugs
+  * e.g. Arc Programming Language [Paul Graham]
+* With smaller code,
+  * the faster you can read and write codes,
+  * the less chances for bugs
 
 <br />
 
@@ -167,7 +167,7 @@
 	end
 
 * debug, info,... etc.
-* You can check its API with `trema ruby` command
+* You can check the API with `trema ruby` command
 
 
 <!SLIDE>
@@ -180,13 +180,13 @@
 
 
 <!SLIDE small>
-# Exercise: Hello Switch #######################################################
+# Exercise: Hello Switch Controller ############################################
 
 	$ trema run hello-switch.rb -c hello-switch.conf
 	Password: gec13user  # Enter your password here
 	Hello 0xabc!  # Ctrl-c to quit
 
-* Connects a <b>virtual switch (dpid = 0xabc)</b> to a controller
+* Connects a <b>virtual switch (dpid = 0xabc)</b> to the controller
 * The controller outputs `"Hello 0xabc!"`
 * Virtual switch definition is in `hello-switch.conf`
 
@@ -200,12 +200,12 @@
 	# or
 	vswitch { datapath_id "0xabc" }
 
-* Software switch launches and connects to a controller
-* Trema is <b>full-stack</b>: You can develop with one note PC
+* This launches a software switch and make it connect to the controller
+* Trema is <b>full-stack</b>: You can develop with your laptop, no need for physical switches!
 
 
 <!SLIDE small>
-# Behind `trema run` ###########################################################
+# The Back Side of `trema run` #################################################
 
 	$ trema run hello-switch.rb -c hello-switch.conf -v
 	.../trema/objects/switch_manager/switch_manager \
@@ -218,7 +218,7 @@
 	  --burst-limit=20000 ...
 	  ...
 
-## Yes, an Open vSwitch process is spawn
+## Certainly an Open vSwitch process is spawn defined in the .conf file
 
 
 <!SLIDE small>
@@ -250,7 +250,7 @@
 	$ trema run hello-switch.rb -c hello-switch.conf
 	???
 
-* What `trema run` says if adding switches to `hello-switch.conf`?
+* What `trema run` says if adding some switches to `hello-switch.conf`?
 * NOTE: dpid's of each switch must be unique
 
 
@@ -262,6 +262,6 @@
 <br />
 
 * <i>Run It Quick</i>: `trema run`
-* <i>Convention over Coding</i>: method naming convention
+* <i>Convention Over Coding</i>: method naming convention
 * <i>Full-Stack</i>: virtual network DSL
 * Useful sub-commands: `trema ruby`

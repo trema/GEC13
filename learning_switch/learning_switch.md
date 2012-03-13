@@ -95,7 +95,7 @@
 # Private Methods ##############################################################
 
 * Actually `flow_mod`, `packet_out`, `flood` are not a part of Trema API, but are defined as user-defined private methods
-* Proper use of private methods makes your code clear like a pseudo-code
+* Proper use of private methods makes your code clear and read like a pseudo-code
 
 
 <!SLIDE smaller>

@@ -9,7 +9,7 @@
 
 	$ trema run packetin-dumper.rb -c packetin-dumper.conf
 
-* Start Packet-In dumper controller
+* Start a Packet-In dumper controller process
 * This also starts a virtual network (= one virtual switch + virtual hosts host1 and host2)
 
 
@@ -23,7 +23,7 @@
 
 
 <!SLIDE>
-## Q: How did you do that (send test packets)? #################################
+## Q: How did you do that (sending test packets)? ##############################
 
 
 <!SLIDE small>
@@ -50,7 +50,7 @@
 # Network Configuration File ###################################################
 
 * Simple and easy test environment
-* You can specify and construct any arbitrary network by just writing a configuration in DSL
+* You can specify and construct any arbitrary network by just writing configurations in DSL
 * Also you can send test packet by one simple command
 
 

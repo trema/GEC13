@@ -118,7 +118,7 @@
 <!SLIDE smaller>
 # Final Code ###################################################################
 
-## Clean, not redundant, only necessary elements included.
+## Clean, not redundant, only necessary elements are included.
 ## Easy to read and write.
 
 	@@@ ruby
