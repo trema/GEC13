@@ -1,27 +1,27 @@
 <!SLIDE small>
 # Task E: Traffic Monitor ######################################################
 
-## flow_removed からトラフィック情報を取得
+## Getting traffic data from flow_removed messages
 
 
 <!SLIDE smaller>
-# やってみよう: トラフィックの表示 #############################################
+# Exercise: Displaying Traffic Data ############################################
 
 	$ trema run traffic-monitor.rb -c traffic-monitor.conf
 
 
-	# 別ターミナルを開く
+	# (On another terminal,)
 	$ trema send_packet --source host1 --dest host2
 	$ trema send_packet --source host2 --dest host3
 	$ trema send_packet --source host3 --dest host1
 
-* トラフィック監視付き L2 スイッチコントローラを起動
-* テストパケットを適当に送る
-* ホストごとのパケット送信量が表示される
+* Launch a "L2 switch with traffic monitoring" controller
+* Send test packets randomly
+* The controller displays and updates the traffic stats of each host
 
 
 <!SLIDE smaller>
-# トラフィック量の取得 #########################################################
+# Getting Traffic Data #########################################################
 
 	@@@ ruby
 	class TrafficMonitor < Controller
@@ -35,7 +35,7 @@
 	  def flow_mod dpid, macsa, macda, out_port
 	    send_flow_mod_add(
 	      dpid,
-	      :hard_timeout => 10,  # フローの寿命は 10 秒
+	      :hard_timeout => 10,  # flows lifetime == 10 seconds.
 	      :match => Match.new( :dl_src => macsa, :dl_dst => macda ),
 	      :actions => ActionOutput.new( out_port )
 	    )
@@ -44,13 +44,13 @@
 	end
 
 
-* フローの寿命を 10 秒に設定
-* フローが消えるときに出る flow_removed メッセージをハンドル
-* フローで転送されたトラフィック量などの情報を記録
+* Set flows' lifetime == 10 seconds
+* Handle flow\_removed messages generated when a flow timeouts
+* Record the traffic info transferred by the removed flow into `@counter` object
 
 
 <!SLIDE smaller>
-# トラフィック情報の表示 #######################################################
+# Displaying Traffic Info ######################################################
 
 	@@@ ruby
 	class TrafficMonitor < Controller
@@ -70,11 +70,11 @@
 	  # ...
 	end
 
-* 10 秒ごとに現在時刻とカウンタの中身を表示
+* Shows the current time and traffic data stored in `@counter` in every 10 seconds
 
 
 <!SLIDE small>
-# Traffic Monitor まとめ #######################################################
+# Traffic Monitor: Summary #####################################################
 
-* Learning Switch の応用
-* flow_removed のトラフィック情報を利用
+* Shows how to use the traffic data stored in flow_removed messages
+* Applied version of learning switch controller
