@@ -10,7 +10,7 @@ This will launch a local Sinatra server on port 9090. Open your browser to `loca
 
     open http://localhost:9090
 
-Use arrow keys to navigate slides. Press '?' to see a help window with more key commands.
+Use arrow keys to navigate through the slides. Press '?' to see a help window with more key commands.
 
 
 # Printing slides (PDF)
