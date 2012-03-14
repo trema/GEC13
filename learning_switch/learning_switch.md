@@ -85,7 +85,7 @@
 	  # ...
 	end
 
-* When a packet comes in with packet-in, make FDB learn its macsa and in_port
+* When a packet comes in as a packet-in message, make FDB learn its macsa and in_port
 * Look up the destination's port number from packet's macda
 * If found: update switch's flow-table and send the packet by packet-out
 * If not-found: flood the packet
