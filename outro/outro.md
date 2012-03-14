@@ -55,8 +55,8 @@
 
 <br />
 
-	$ gcc mycontroller.c `trema-config -c -l` -o my-controller
-	$ trema run my-controller
+	$ gcc myapp.c `trema-config -c -l` -o myapp
+	$ trema run myapp
 
 
 <!SLIDE small>
