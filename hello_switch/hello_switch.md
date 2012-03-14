@@ -1,10 +1,10 @@
 <!SLIDE>
 # Task B: Hello Switch! ########################################################
-## Connecting an OF switch to your controller
+## Connect an OpenFlow switch to controller
 
 
 <!SLIDE>
-## "Wait, I don't have any OpenFlow switch. <br /> How to do that?" 
+## "Wait, I don't have any OpenFlow switch. <br /> How to do that?"
 
 
 <!SLIDE small>
@@ -16,7 +16,7 @@
 
 * Connects a <b>virtual switch (dpid = 0xabc)</b> to the controller
 * The controller outputs `"Hello 0xabc!"`
-* Virtual switch definition is in `hello-switch.conf`
+* Virtual switch is defined in `hello-switch.conf`
 
 
 <!SLIDE small>
@@ -30,8 +30,8 @@
 	# or
 	vswitch { datapath_id "0xabc" }
 
-* This launches one software switch and make it connect to the controller
-* Trema is <b>full-stack</b>: You can develop with your laptop, no need for physical switches!
+* Launches a software switch that establishes connection with the controller
+* Trema is a <b>full-stack</b> framework. A single laptop is all that is needed, no physical switches!
 
 
 <!SLIDE small>
@@ -45,8 +45,8 @@
 	end
 
 * `switch_ready` is an handler called when a switch connects to the controller
-* the argument `dpid` is switch's ID (in integer)
-* `.to_hex` converts the integer into a String in hex format 
+* the argument `dpid` is switch's ID (integer in decimal format)
+* `.to_hex` converts the `dpid` into a hex format String
 
 
 <!SLIDE small>
@@ -63,7 +63,7 @@
 	$ trema run hello-switch.rb -c hello-switch.conf
 	???
 
-* What `trema run` says if adding some switches to `hello-switch.conf`?
+* What `trema run` would indicate if adding some switches to `hello-switch.conf`?
 * NOTE: dpid's of each switch must be unique
 
 
@@ -77,4 +77,4 @@
 * <i>Run It Quick</i>: `trema run`
 * <i>Convention Over Coding</i>: method naming convention
 * <i>Full-Stack</i>: virtual network DSL
-* Useful sub-commands: `trema ruby` for API reference
+* Useful sub-commands: `trema ruby`

@@ -5,7 +5,7 @@
 <!SLIDE commandline>
 ## Exercise: Run "Hello Trema!" ################################################
 
-### Run Trema by typing the following command sequence:
+### Run Trema by typing the following commands:
 
 	$ cd Tutorials/Trema
 	$ trema run hello-trema.rb
@@ -19,19 +19,19 @@
 
 * Starts a controller process
 * Ctrl-c to quit
-* Full options list is available by `trema help run`
+* Full options list available by `trema help run`
 
 
-<!SLIDE small transition=uncover>
+<!SLIDE small>
 # Run It Quick #################################################################
 
-* Enables the quick start/stop of controller process with one `trema run` command
-* Test your controller quickly right after coding
+* Faster execution/termination of controller process with one `trema run` command
+* Highly tailored testing of your controller immediately after coding
 * Enables the tight cycle of "Coding, test, and debug"
 
 
 <!SLIDE small>
-# Howto write controllers in Trema #############################################
+# How-to write controllers in Trema #############################################
 
 
 <!SLIDE small>
@@ -45,7 +45,7 @@
 	end
 
 * Simple and complete but not so much useful or interesting
-* But it shows the basic code layout of controllers in Trema
+* But it demonstrates how to craft controllers in Trema
 
 
 <!SLIDE small>
@@ -56,9 +56,9 @@
 	  # ...
 	end
 
-* All controllers are implemented as a class (`class HelloController`)
-* Derived from `Controller` class defined in Trema class library
-* All necessary methods for controller (flow-mod message creation etc.) are injected automatically into your class
+* All controllers implemented as class objects (`class HelloController`)
+* Subclassed from `Controller` class defined in Trema class library
+* All controller's supported methods (flow-mod message creation etc.) injected automatically into your class
 
 
 <!SLIDE small>
@@ -77,8 +77,8 @@
 	  # ...
 	end
 
-* Controllers are Written in <i>event-driven</i> model
-* Each handler is implemented as a instance method
+* Controllers follow the <i>event-driven</i> paradigm
+* Each event handler implemented as a instance method
 
 
 <!SLIDE small>
@@ -113,8 +113,8 @@
 	  end
 	end
 
-* If Trema finds a handler for incoming event, Trema calls the handler automatically
-* You need no explicit handler dispatch or registration
+* Trema uses retrospection to dispatch events to registered handlers
+* No need to explicitly dispatch or register handlers just define it
 
 
 <!SLIDE small transition=uncover>
@@ -122,8 +122,8 @@
 
 * Coding conventions for concise and compact code
   * e.g., "handler name" == "message name"
-* Kills boilerplate codes like event dispatching
-* Reduces boring part of programming and make it fun
+* Eliminates boilerplate code like event dispatching
+* Reduces the tedious and boring parts of programming hence fun to program
 
 
 <!SLIDE small>
@@ -131,9 +131,9 @@
 
 * There is a strong correlation between the length of code (number of tokens) and programmers' productivity
   * e.g. Arc Programming Language [Paul Graham]
-* With smaller code,
-  * the faster you can read and write codes,
-  * the less chances for bugs
+* With smaller code
+  * less time to write consistant code
+  * less chances for bugs
 
 <br />
 
@@ -150,5 +150,5 @@
 	  end
 	end
 
-* debug, info, warn... etc.
-* You can check the API with `trema ruby` command
+* debug, info and other logging levels in descreasing verbosity
+* Browse through the Logging API and rest of API by invoking `trema ruby`

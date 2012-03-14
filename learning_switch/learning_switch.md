@@ -7,7 +7,7 @@
 <!SLIDE smaller>
 # Exercise: Packet Stats Info ##################################################
 
-## Launch an L2 switch controller:
+## Launch a L2 switch controller:
 
 	$ trema run learning-switch.rb -c learning-switch.conf
 
@@ -28,7 +28,7 @@
 	$ trema send_packet --source host2 --dest host1
 	$ trema dump_flows 0xabc
 
-## This shows the flow-table entries stored in the switch `0xabc`
+## This displays the flow-table entries stored in the switch `0xabc`
 
 
 <!SLIDE small>
@@ -94,8 +94,8 @@
 <!SLIDE smaller>
 # Private Methods ##############################################################
 
-* Actually `flow_mod`, `packet_out`, `flood` are not a part of Trema API, but are defined as user-defined private methods
-* Proper use of private methods makes your code clear and read like a pseudo-code
+* Actually `flow_mod`, `packet_out`, `flood` are not part of the Trema API, but  defined as private methods here
+* Proper use of names for private methods makes your code clean and can be read like pseudo-code
 
 
 <!SLIDE smaller>

@@ -4,20 +4,21 @@
 ### Yasuhito Takamiya  `@yasuhito`
 ### Yasunobu Chiba  `@chibacchie`
 ### Hideyuki Shimonishi  `@hide_shimonishi`
+### Nick Karanatsios `@nickkaranatsios`
 
 
 <!SLIDE small>
 # Today's Goal #################################################################
 
-* Implement "L2 switch with traffic monitoring" controller
-* This tutorial is composed of small four iterations starting from "Hello World"
+* Implement a "L2 switch with traffic monitoring" controller
+* This tutorial consists of four small sections starting from "Hello World"
 * Let's go through the entire cycle of OpenFlow controller development using Trema
 
 
 <!SLIDE small incremental>
 # What's Trema? ################################################################
 
-* New OpenFlow programming framework in Ruby and C
+* A New OpenFlow programming framework in Ruby and C
   * GPL2
   * <http://github.com/trema/trema>
 * Designed to be highly productive for this "Post-Rails" era
