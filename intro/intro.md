@@ -27,9 +27,13 @@
 
 
 <!SLIDE>
-# Trema =
-## `trema` command
-## +
-## Ruby and C library
+# Trema = ######################################################################
+## OpenFlow controller library (in Ruby and C)
 ## +
 ## Network Emulator
+## +
+## `trema` command
+
+
+<!SLIDE full-page>
+![overview](overview.png)
