@@ -156,7 +156,7 @@
 
 <!SLIDE>
 # Hello Switch! ################################################################
-## Connecting a OpenFlow switch to your controller
+## Connecting an OpenFlow switch to your controller
 
 
 <!SLIDE>
