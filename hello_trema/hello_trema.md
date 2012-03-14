@@ -31,7 +31,7 @@
 
 * Quick execution and termination of controller process with one `trema run` command
 * Highly tailored testing of your controller immediately after coding
-* Enables the closed-loop development of "Code, test and debug"
+* Enables the closed-loop development of "code, test and debug"
 
 
 <!SLIDE small>
