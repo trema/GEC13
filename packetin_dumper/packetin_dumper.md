@@ -1,11 +1,11 @@
 <!SLIDE small>
-# Task C: PacketIn Dumper ######################################################
+# Task C: Packet-In Dumper #####################################################
 
 ## Handling Packet-In Messages
 
 
 <!SLIDE small>
-## Exercise: Displaying Packet-In Message Contents #################################
+## Exercise: Displaying Packet-In Message Contents #############################
 
 	$ trema run packetin-dumper.rb -c packetin-dumper.conf
 
@@ -14,7 +14,7 @@
 
 
 <!SLIDE small>
-## Exercise: Displaying Packet-In Message Contents #################################
+## Exercise: Displaying Packet-In Message Contents #############################
 
 	$ trema send_packets --source host1 --dest host2
 
