@@ -5,7 +5,7 @@
 <!SLIDE small incremental transition=uncover>
 # Trema: "OpenFlow like Rails" ##################################################
 
-* <i>Run It Quick</i>: Tight loops of coding, run, and debug
+* <i>Run It Quick</i>: Closed-loop development code, run, debug
   * Virtual network DSL
   * `trema {run, send_packets, show_stats, up, kill}`
 * <i>Coding by Convention</i>: Write it short
