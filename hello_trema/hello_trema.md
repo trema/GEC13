@@ -154,5 +154,5 @@
 	  end
 	end
 
-* debug, info and other logging levels in descreasing verbosity
-* browse through the Logging API and rest of API by invoking `trema ruby`
+* Debug, info and other logging levels in descreasing verbosity
+* Browse through the Logging API and rest of API by invoking `trema ruby`

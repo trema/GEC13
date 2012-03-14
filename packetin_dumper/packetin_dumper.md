@@ -57,13 +57,13 @@
 <!SLIDE small>
 # Network Configuration File ###################################################
 
-* Simple and easy to configure test environment
-* You can specify and construct any arbitrary network by just writing configurations in DSL
-* Also you can send test packet by one simple command
+* Simple enough to configure a test environment
+* Specify and construct any arbitrary network by just writing configuration statements in DSL
+* And also send test packet by one simple command
 
 
 <!SLIDE small>
-# Example: More Complicated Network ############################################
+# Example: A More Complicated Network ############################################
 
 	@@@ ruby
 	vswitch { dpid "0x1" }
@@ -100,7 +100,7 @@
 	  end
 	end
 
-* `packet_in`: arguments are dpid and a Packet-In message (`message`)
+* `packet_in`: arguments are dpid and a Packet-In message object (`message`)
 * `message.attribute` for inspecting the attributes of the Packet-In message
 
 
