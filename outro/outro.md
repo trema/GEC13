@@ -22,21 +22,35 @@
 
 * `[trema]/src/examples`
   * Simple samples demonstrating API usage
-  * Good reference for both Ruby and C
+  * Good references for understanding both Ruby and C APIs
 * Trema/Apps <http://github.com/trema/apps>
-  * Real-world Trema applications (EXPERIMENTAL)
-  * learning switch with memcached
-  * routing switch
-  * sliceable routing switch etc.
+  * Practical/experimental controllers developed on top of Trema
+  * Good starting point for developing real-world controllers
 
 
 <!SLIDE small>
-# Sliceable routing switch #####################################################
+# Trema/Apps ###################################################################
 
-* Layer-2 network virtualization
-  * Virtual flat L2 network domains + L1-4 access control list
-* RESTful-API for slice management
-  * Create slices and attach hosts by its port or MAC
+* Routing Switch
+  * Creates a Layer-2 switch consists of OpenFlow switches
+  * Resolves internal paths with a shortest path algorithm
+* Sliceable Routing Switch
+  * Creates virtual L2 network domains (slices) with L1-4 ACL
+  * Has REST-API for slice and ACL management
+    * Create/delete a slice
+    * Attach/detach a host to/from a slice
+    * Add/delete an ACL entry
+
+
+<!SLIDE small>
+# Trema/Apps - Cont'd ##########################################################
+
+* Topology
+  * Discovers network topology using LLDP
+  * Provides API for retrieving a discovered topology from other application
+* Flow Manager
+  * Provides API for managing a set of flow entries as a single group
+  * Guarantees all entries in a group are properly installed and removed
 
 
 <!SLIDE>
@@ -44,7 +58,7 @@
 
 
 <!SLIDE>
-# Love C? ###################################################################
+# Love C? ######################################################################
 
 
 <!SLIDE small>
@@ -64,6 +78,7 @@
 
 * Trema: <http://github.com/trema/>
 * This Tutorial: <http://github.com/trema/GEC13/>
+* Trema/Apps: <http://github.com/trema/apps/>
 * Web Page: <http://trema.github.com/trema/>
 * Twitter: <http://twitter.com/trema_news>
 * Mailing List: <https://groups.google.com/group/trema-dev>
