@@ -7,7 +7,7 @@
 <!SLIDE smaller>
 # Exercise: Packet Stats Info ##################################################
 
-## Launch an L2 switch controller:
+## Launch a L2 switch controller:
 
 	$ trema run learning-switch.rb -c learning-switch.conf
 
@@ -85,10 +85,10 @@
 	  # ...
 	end
 
-* When a packet-in comes in, make FDB learn its macsa and in_port
-* Look up the destination's port number from packet-in's macda
-* If found: update switch's flow-table and do packet-out the packet-in message
-* If not-found: flood the packet-in message
+* When a packet comes in with packet-in, make FDB learn its macsa and in_port
+* Look up the destination's port number from the packet's macda
+* If found: update switch's flow-table and send the packet with packet-out
+* If not-found: flood the packet
 
 
 <!SLIDE smaller>

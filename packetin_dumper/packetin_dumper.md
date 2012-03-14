@@ -1,5 +1,5 @@
 <!SLIDE small>
-# Task C: PacketIn Dumper ######################################################
+# Task C: Packet-In Dumpr ######################################################
 
 ## Handling Packet-In Messages
 
@@ -18,7 +18,7 @@
 
 	$ trema send_packets --source host1 --dest host2
 
-* Open an another terminal, then send a test packet from host1 to host2
+* Open another terminal, then send a test packet from host1 to host2
 * This causes the controller to dump the packet-in message
 
 
