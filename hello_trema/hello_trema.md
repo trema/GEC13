@@ -29,7 +29,7 @@
 <!SLIDE small>
 # Run It Quick #################################################################
 
-* Faster execution/termination of controller process with one `trema run` command
+* Quick execution and termination of controller process with one `trema run` command
 * Highly tailored testing of your controller immediately after coding
 * Enables the tight cycle of "Coding, test, and debug"
 
@@ -155,4 +155,4 @@
 	end
 
 * debug, info and other logging levels in descreasing verbosity
-* Browse through the Logging API and rest of API by invoking `trema ruby`
+* browse through the Logging API and rest of API by invoking `trema ruby`
