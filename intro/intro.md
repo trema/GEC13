@@ -24,7 +24,6 @@
   * <i>Run It Quick</i>: Tight loop of coding, run, and debug
   * <i>Convention over Coding</i>: Write it short
   * <i>Integrated Unit-Testing</i>
-* Let's go through the entire cycle of development using Trema
 
 
 <!SLIDE small>

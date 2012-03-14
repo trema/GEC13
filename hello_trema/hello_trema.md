@@ -22,22 +22,6 @@
 * Full options list is available by `trema help run`
 
 
-<!SLIDE small>
-# The Back Side of `trema run` #################################################
-
-## `trema run` does lots of tasks in the back:
-
-	$ trema run hello-trema.rb -v
-	.../trema/objects/switch_manager/switch_manager \
-	  --daemonize --port=6633 -- port_status::HelloTrema \
-	  packet_in::HelloTrema state_notify::HelloTrema \
-	  vendor::HelloTrema
-	Hello Trema!
-
-* Spawns daemons with necessary arguments required for controller execution
-* Hides the complexity of Trema internal from users
-
-
 <!SLIDE small transition=uncover>
 # Run It Quick #################################################################
 
@@ -166,13 +150,13 @@
 	  end
 	end
 
-* debug, info,... etc.
+* debug, info, warn... etc.
 * You can check the API with `trema ruby` command
 
 
 <!SLIDE>
 # Hello Switch! ################################################################
-## Connecting a OpenSwitch switch to controllers
+## Connecting a OpenFlow switch to your controller
 
 
 <!SLIDE>
