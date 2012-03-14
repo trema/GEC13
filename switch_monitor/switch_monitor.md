@@ -17,8 +17,8 @@
 	All switches = 0x1, 0x2, 0x3
 	  ...
 
-* Detects three switches defined in `.conf`
-* Updates switch list in every 10 seconds
+* Detects three switches as defined in `.conf`
+* Updates liveness information every 10 seconds
 
 
 <!SLIDE small>
@@ -27,8 +27,8 @@
 	$ trema kill 0x1  # Kill switch 0x1
 	$ trema up 0x1    # Start switch 0x1
 
-* Open another terminal and execute `trema kill` and `trema up`
-* How the output of `trema run` look like?
+* On another terminal execute `trema kill` and `trema up`
+* Observe how the output of `trema run` looks like?
 
 
 <!SLIDE small>
@@ -50,7 +50,7 @@
 	  # ...	
 	end
 
-* Almost same with other handlers
+* Almost identical code used in other handlers
 * `@switches` is explained later
 
 
@@ -76,9 +76,9 @@
 	  # ...
 	end
 
-* `@switches` is an instance variable that holds a list of switches alive
-* `[]` is a list in Ruby
-* "`<< element`" to add an element, "`-= [ element ]`" to remove from the list
+* `@switches` is an instance variable that holds a list of switches that are alive
+* `[]` is an array in Ruby
+* "`<< element`" to add an element, "`-= [ element ]`" to remove from the array
 
 
 <!SLIDE smaller>
@@ -96,8 +96,8 @@
 	  end
 	end
 
-* `periodic_timer_event`: call `show_switches` method in every 10 sec.
-* `show_switches`: outputs a sorted switch list
+* `periodic_timer_event`: calls `show_switches` method every 10 sec.
+* `show_switches`: outputs the sorted switches array
 
 
 <!SLIDE smaller>
@@ -110,7 +110,7 @@
 	  # ...
 	end
 
-* You can define timer handlers like a class attribute
+* Define timer handlers using a class attribute
 * Don't need to implement timer handling by yourself using threads etc.
 * Another example of <i>convention over coding</i>
 
@@ -118,8 +118,8 @@
 <!SLIDE smaller>
 # Final Code ###################################################################
 
-## Clean, not redundant, only necessary elements are included.
-## Easy to read and write.
+## Clean complete and full-functional with no redundancy
+## Easy to read and reuse
 
 	@@@ ruby
 	class SwitchMonitor < Controller

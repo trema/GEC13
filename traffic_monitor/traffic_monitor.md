@@ -44,9 +44,9 @@
 	end
 
 
-* Set each flow's lifetime = 10 seconds
+* Set each flow's lifetime to 10 seconds
 * Handle flow\_removed messages generated when a flow timeouts
-* Record the traffic mount transferred by the removed flow
+* Record the traffic amount transferred from the removed flow
 
 
 <!SLIDE smaller>
@@ -70,11 +70,11 @@
 	  # ...
 	end
 
-* Shows the current time and traffic data stored in `@counter` in every 10 seconds
+* Shows the current time and traffic data stored in `@counter` every 10 seconds
 
 
 <!SLIDE small>
 # Traffic Monitor: Summary #####################################################
 
 * Shows how to use the traffic data stored in flow_removed messages
-* Applied version of learning switch controller
+* A practical example of learning switch controller

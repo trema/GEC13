@@ -5,7 +5,7 @@
 <!SLIDE commandline transition=toss>
 ## Exercise: Run "Hello Trema!" ################################################
 
-### Run Trema by typing the following command sequence:
+### Run Trema by typing the following commands:
 
 	$ cd Tutorials/Trema
 	$ trema run hello-trema.rb
@@ -19,19 +19,18 @@
 
 * Starts a controller process
 * Ctrl-c to quit
-* Full options list is available by `trema help run`
-
+* Full options list available by `trema help run`
 
 <!SLIDE small transition=uncover>
 # Run It Quick #################################################################
 
-* Enables the quick start/stop of controller process with one `trema run` command
-* Test your controller quickly right after coding
+* Faster execution/termination of controller process with one `trema run` command
+* Highly tailored testing of your controller immediately after coding
 * Enables the tight cycle of "Coding, test, and debug"
 
 
 <!SLIDE small transition=toss>
-# Howto write controllers in Trema #############################################
+# How-to write controllers in Trema #############################################
 
 
 <!SLIDE small transition=toss>
@@ -45,7 +44,7 @@
 	end
 
 * Simple and complete but not so much useful or interesting
-* But it shows the basic code layout of controllers in Trema
+* But it demonstrates how to craft controllers in Trema
 
 
 <!SLIDE small>
@@ -56,9 +55,9 @@
 	  # ...
 	end
 
-* All controllers are implemented as a class (`class HelloController`)
-* Derived from `Controller` class defined in Trema class library
-* All necessary methods for controller (flow-mod message creation etc.) are injected automatically into your class
+* All controllers implemented as class objects (`class HelloController`)
+* Subclassed from `Controller` class defined in Trema class library
+* All controller's supported methods (flow-mod message creation etc.) injected automatically into your class
 
 
 <!SLIDE small>
@@ -77,8 +76,8 @@
 	  # ...
 	end
 
-* Controllers are Written in <i>event-driven</i> model
-* Each handler is implemented as a instance method
+* Controllers follow the <i>event-driven</i> paradigm
+* Each event handler implemented as a instance method
 
 
 <!SLIDE small>
@@ -113,8 +112,8 @@
 	  end
 	end
 
-* If Trema finds a handler for incoming event, Trema calls the handler automatically
-* You need no explicit handler dispatch or registration
+* Trema uses retrospection to dispatch events to registered handlers
+* No need to explicitly dispatch or register handlers just define it
 
 
 <!SLIDE small transition=uncover>
@@ -122,8 +121,8 @@
 
 * Coding conventions for concise and compact code
   * e.g., "handler name" == "message name"
-* Kills boilerplate codes like event dispatching
-* Reduces boring part of programming and make it fun
+* Eliminates boilerplate code like event dispatching
+* Reduces the tedious and boring parts of programming hence fun to program
 
 
 <!SLIDE small transition=toss>
@@ -131,9 +130,9 @@
 
 * There is a strong correlation between the length of code (number of tokens) and programmers' productivity
   * e.g. Arc Programming Language [Paul Graham]
-* With smaller code,
-  * the faster you can read and write codes,
-  * the less chances for bugs
+* With smaller code
+  * less time to write consistant code
+  * less chances for bugs
 
 <br />
 
@@ -150,17 +149,16 @@
 	  end
 	end
 
-* debug, info, warn... etc.
-* You can check the API with `trema ruby` command
-
+* debug, info and other logging levels in descreasing verbosity
+* Browse through the Logging API and rest of API by invoking `trema ruby`
 
 <!SLIDE>
 # Hello Switch! ################################################################
-## Connecting an OpenFlow switch to your controller
+## Connect an OpenFlow switch to controller
 
 
 <!SLIDE>
-## "Wait, I don't have any OpenFlow switch. <br /> How to do that?" 
+## "Wait, I don't have any OpenFlow switch. <br /> How to do that?"
 
 
 <!SLIDE small>
@@ -172,7 +170,7 @@
 
 * Connects a <b>virtual switch (dpid = 0xabc)</b> to the controller
 * The controller outputs `"Hello 0xabc!"`
-* Virtual switch definition is in `hello-switch.conf`
+* Virtual switch is defined in `hello-switch.conf`
 
 
 <!SLIDE small>
@@ -186,8 +184,8 @@
 	# or
 	vswitch { datapath_id "0xabc" }
 
-* This launches one software switch and make it connect to the controller
-* Trema is <b>full-stack</b>: You can develop with your laptop, no need for physical switches!
+* Launches a software switch that establishes connection with the controller
+* Trema is a <b>full-stack</b> framework. A single laptop is all that is needed, no physical switches!
 
 
 <!SLIDE small>
@@ -201,8 +199,8 @@
 	end
 
 * `switch_ready` is an handler called when a switch connects to the controller
-* the argument `dpid` is switch's ID (in integer)
-* `.to_hex` converts the integer into a String in hex format 
+* the argument `dpid` is switch's ID (integer in decimal format)
+* `.to_hex` converts the `dpid` into a hex format String
 
 
 <!SLIDE small>
@@ -219,7 +217,7 @@
 	$ trema run hello-switch.rb -c hello-switch.conf
 	???
 
-* What `trema run` says if adding some switches to `hello-switch.conf`?
+* What `trema run` would indicate if adding some switches to `hello-switch.conf`?
 * NOTE: dpid's of each switch must be unique
 
 

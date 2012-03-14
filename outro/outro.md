@@ -22,7 +22,7 @@
 
 * `[trema]/src/examples`
   * Simple samples demonstrating API usage
-  * Good for reference for both Ruby and C
+  * Good reference for both Ruby and C
 * Trema/Apps <http://github.com/trema/apps>
   * Real-world Trema applications (EXPERIMENTAL)
   * learning switch with memcached
@@ -35,7 +35,7 @@
 
 * Layer-2 network virtualization
   * Virtual flat L2 network domains + L1-4 access control list
-* REST-API for slice management
+* RESTful-API for slice management
   * Create slices and attach hosts by its port or MAC
 
 
@@ -50,7 +50,7 @@
 <!SLIDE small>
 # Trema C ######################################################################
 
-* It's your choice ... Trema provides both Ruby and C library.
+* It's your choice ... Trema provides libraries for both Ruby and C
 * Trema C is also simple as Trema Ruby
 
 <br />

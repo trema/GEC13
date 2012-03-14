@@ -1,25 +1,25 @@
 <!SLIDE small>
-# Task C: Packet-In Dumpr ######################################################
+# Task C: PacketIn Dumper ######################################################
 
 ## Handling Packet-In Messages
 
 
 <!SLIDE small>
-## Exercise: Displaying Packet-In Message Dump #################################
+## Exercise: Displaying Packet-In Message Contents #################################
 
 	$ trema run packetin-dumper.rb -c packetin-dumper.conf
 
 * Start a Packet-In dumper controller process
-* This also starts a virtual network (= one virtual switch + virtual hosts host1 and host2)
+* This also starts a virtual network (= one virtual switch + two virtual hosts host1, host2)
 
 
 <!SLIDE small>
-## Exercise: Displaying Packet-In Message Dump #################################
+## Exercise: Displaying Packet-In Message Contents #################################
 
 	$ trema send_packets --source host1 --dest host2
 
 * Open another terminal, then send a test packet from host1 to host2
-* This causes the controller to dump the packet-in message
+* This would cause the controller to dump the packet-in message
 
 
 <!SLIDE>
@@ -41,7 +41,7 @@
 	link "0xabc", "host1"
 	link "0xabc", "host2"
 
-## Sending test packets between virtual hosts defined above
+## Send test packets between virtual hosts as defined above
 
 	$ trema send_packets --source host1 --dest host2
 
@@ -49,7 +49,7 @@
 <!SLIDE small>
 # Network Configuration File ###################################################
 
-* Simple and easy test environment
+* Simple and easy to configure test environment
 * You can specify and construct any arbitrary network by just writing configurations in DSL
 * Also you can send test packet by one simple command
 
@@ -93,7 +93,7 @@
 	end
 
 * `packet_in`: arguments are dpid and a Packet-In message (`message`)
-* `message.name` for inspecting the attributes of the Packet-In message
+* `message.attribute` for inspecting the attributes of the Packet-In message
 
 
 <!SLIDE smaller>
@@ -112,4 +112,4 @@
 	end
 
 * Display other Packet-In attributes (total_len, macsa, macda ...)
-* Hint: Use `trema ruby` for the reference of PacketIn class
+* Hint: Use `trema ruby` for the full API reference of PacketIn class
