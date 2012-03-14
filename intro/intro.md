@@ -24,7 +24,7 @@
   * <http://github.com/trema/trema>
 * Designed to be highly productive for this "Post-Rails" era
   * <i>Run It Quick</i>: Tight loop of coding, run, and debug
-  * <i>Convention over Coding</i>: Write it short
+  * <i>Coding by Convention</i>: Write it short
   * <i>Integrated Unit-Testing</i>
 
 
