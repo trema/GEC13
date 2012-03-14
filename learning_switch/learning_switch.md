@@ -27,12 +27,12 @@
 
 
 <!SLIDE small>
-# Exercise: View Flow Table ####################################################
+# Exercise: View the Flow Table ####################################################
 
 	$ trema send_packet --source host2 --dest host1
 	$ trema dump_flows 0xabc
 
-## This displays the flow-table entries stored in the switch `0xabc`
+## The above command displays the flow-table entries stored in the switch `0xabc`
 
 
 <!SLIDE center>
@@ -93,7 +93,7 @@
 	  # ...
 	end
 
-* When a packet comes in as a packet-in message, make FDB learn its macsa and in_port
+* When a packet comes in as a packet-in message, make FDB learn its macsa and the in_port
 * Look up the destination's port number from packet's macda
 * If found: update switch's flow-table and do packet-out the packet
 * If not-found: flood the packet
