@@ -179,30 +179,15 @@
 # hello-switch.conf ############################################################
 
 	@@@ ruby
+	#    
 	# Add a switch with dpid == 0xabc
+	#    
 	vswitch { dpid "0xabc" }
 	# or
 	vswitch { datapath_id "0xabc" }
 
-* This launches a software switch and make it connect to the controller
+* This launches one software switch and make it connect to the controller
 * Trema is <b>full-stack</b>: You can develop with your laptop, no need for physical switches!
-
-
-<!SLIDE small>
-# The Back Side of `trema run` #################################################
-
-	$ trema run hello-switch.rb -c hello-switch.conf -v
-	.../trema/objects/switch_manager/switch_manager \
-	  --daemonize --port=6633 -- port_status::HelloSwitch \
-	  packet_in::HelloSwitch state_notify::HelloTrema \
-	  vendor::HelloSwitch
-	sudo .../trema/objects/openvswitch/bin/ovs-openflowd \
-	  --detach --out-of-band --fail=closed \
-	  --inactivity-probe=180 --rate-limit=40000 \
-	  --burst-limit=20000 ...
-	  ...
-
-## Certainly an Open vSwitch process is spawn defined in the .conf file
 
 
 <!SLIDE small>
