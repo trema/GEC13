@@ -6,7 +6,7 @@
 ### Hideyuki Shimonishi  `@hide_shimonishi`
 
 
-<!SLIDE small transition=fade>
+<!SLIDE small>
 # Today's Goal #################################################################
 
 * Implement "L2 switch with traffic monitoring" controller
@@ -26,11 +26,10 @@
   * <i>Integrated Unit-Testing</i>
 
 
-<!SLIDE small>
-# Tutorial VM ##################################################################
-
-* All codes are in `~/Tutorials/Trema`
-* Latest version of Trema is installed
-* Password: `gec13user`
-
-
+<!SLIDE>
+# Trema =
+## `trema` command
+## +
+## Ruby and C library
+## +
+## Network Emulator
