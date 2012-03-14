@@ -22,6 +22,10 @@
 	$ trema show_stats host2
 
 
+<!SLIDE center>
+![overview](show_stats.png)
+
+
 <!SLIDE small>
 # Exercise: View Flow Table ####################################################
 
@@ -31,11 +35,15 @@
 ## This displays the flow-table entries stored in the switch `0xabc`
 
 
+<!SLIDE center>
+![overview](dump_flows.png)
+
+
 <!SLIDE small>
 # Useful Sub-Commands ##########################################################
 
-* `trema show_stats` HOST_NAME
-* `trema dump_flows` SWITCH_NAME
+* `trema show_stats HOST_NAME`
+* `trema dump_flows SWITCH_NAME`
 
 ## Various stats and internal info can be displayed with one simple command
 
@@ -87,7 +95,7 @@
 
 * When a packet comes in as a packet-in message, make FDB learn its macsa and in_port
 * Look up the destination's port number from packet's macda
-* If found: update switch's flow-table and send the packet by packet-out
+* If found: update switch's flow-table and do packet-out the packet
 * If not-found: flood the packet
 
 

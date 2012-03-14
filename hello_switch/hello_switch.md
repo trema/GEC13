@@ -19,6 +19,10 @@
 * Virtual switch is defined in `hello-switch.conf`
 
 
+<!SLIDE center>
+![overview](hello_switch.png)
+
+
 <!SLIDE small>
 # hello-switch.conf ############################################################
 

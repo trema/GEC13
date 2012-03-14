@@ -13,6 +13,10 @@
 * This also starts a virtual network (= one virtual switch + two virtual hosts host1, host2)
 
 
+<!SLIDE center>
+![overview](packetin_dumper1.png)
+
+
 <!SLIDE small>
 ## Exercise: Displaying Packet-In Message Contents #############################
 
@@ -20,6 +24,10 @@
 
 * Open another terminal, then send a test packet from host1 to host2
 * This would cause the controller to dump the packet-in message
+
+
+<!SLIDE center>
+![overview](packetin_dumper2.png)
 
 
 <!SLIDE>

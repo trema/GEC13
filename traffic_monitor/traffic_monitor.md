@@ -20,6 +20,10 @@
 * The controller displays and updates the traffic stats of each host
 
 
+<!SLIDE center>
+![overview](traffic_monitor.png)
+
+
 <!SLIDE smaller>
 # Getting Traffic Data #########################################################
 
