@@ -122,7 +122,7 @@
 
 
 <!SLIDE small transition=uncover>
-# Convention over Coding #######################################################
+# Coding by Convention #######################################################
 
 * Coding conventions for concise and compact code
   * e.g., "handler name" == "message name"
