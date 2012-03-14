@@ -73,6 +73,23 @@
 * Shows the current time and traffic data stored in `@counter` in every 10 seconds
 
 
+<!SLIDE smaller>
+# Timer Attribute ##############################################################
+
+	@@@ ruby
+	class TrafficMonitor < Controller
+	  periodic_timer_event :show_counter, 10
+	
+	  # ...
+	
+	  def show_counter ...
+	end
+
+* You can define timer handlers like a class attribute
+* Don't need to implement timer handling by yourself using threads etc.
+* Another example of <i>convention over coding</i>
+
+
 <!SLIDE small>
 # Traffic Monitor: Summary #####################################################
 

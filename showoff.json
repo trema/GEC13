@@ -10,7 +10,7 @@
     "sections" : [
         {"section" : "intro"},
         {"section" : "hello_trema"},
-        {"section" : "switch_monitor"},
+        {"section" : "hello_switch"},
         {"section" : "packetin_dumper"},
         {"section" : "intermission"},
         {"section" : "learning_switch"},
