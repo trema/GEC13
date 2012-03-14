@@ -34,7 +34,7 @@
 	# or
 	vswitch { datapath_id "0xabc" }
 
-* Launches a software switch that establishes connection with the controller
+* Launches a software switch establishing connection with the controller
 * Trema is a <b>full-stack</b> framework. A single laptop is all that is needed, no physical switches!
 
 
@@ -79,6 +79,6 @@
 <br />
 
 * <i>Run It Quick</i>: `trema run`
-* <i>Convention Over Coding</i>: method naming convention
+* <i>Coding by Convention</i>: method naming convention
 * <i>Full-Stack</i>: virtual network DSL
 * Useful sub-commands: `trema ruby`
