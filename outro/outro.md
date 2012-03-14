@@ -24,7 +24,7 @@
   * Simple samples demonstrating API usage
   * Good references for understanding both Ruby and C APIs
 * Trema/Apps <http://github.com/trema/apps>
-  * Practical/experimental controller developed on top of Trema
+  * Practical/experimental controllers developed on top of Trema
   * Good starting point for developing real-world controllers
 
 
@@ -78,6 +78,7 @@
 
 * Trema: <http://github.com/trema/>
 * This Tutorial: <http://github.com/trema/GEC13/>
+* Trema/Apps: <http://github.com/trema/apps/>
 * Web Page: <http://trema.github.com/trema/>
 * Twitter: <http://twitter.com/trema_news>
 * Mailing List: <https://groups.google.com/group/trema-dev>
