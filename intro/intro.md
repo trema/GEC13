@@ -10,8 +10,9 @@
 <!SLIDE small>
 # Today's Goal #################################################################
 
-* Implement a "L2 switch with traffic monitoring" controller
-* This tutorial consists of four small sections starting from "Hello World"
+## Implement a "L2 switch with traffic monitoring" controller
+
+* This tutorial consists of five small sections starting from "Hello World"
 * Let's go through the entire cycle of OpenFlow controller development using Trema
 
 
