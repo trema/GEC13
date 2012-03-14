@@ -8,7 +8,7 @@
 * <i>Run It Quick</i>: Tight loops of coding, run, and debug
   * Virtual network DSL
   * `trema {run, send_packets, show_stats, up, kill}`
-* <i>Convention Over Coding</i>: Write it short
+* <i>Coding by Convention</i>: Write it short
   * Auto handler dispatch by naming convention
   * Class attributes: `periodic_timer_event`
   * Syntactic sugars: `ExactMatch.from`
@@ -31,8 +31,8 @@
 <!SLIDE small>
 # Trema/Apps: Routing Switch ###################################################
 
-* Creates a Layer-2 switch consists of OpenFlow switches
-* Resolves internal paths with a shortest path algorithm
+* Creates a Layer-2 switch consisting of OpenFlow switches
+* Resolves internal paths using a shortest path algorithm
 
 <div align="center" style="height: 300px;"><img src="routing_switch.png"/></div>
 
