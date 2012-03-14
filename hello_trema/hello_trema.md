@@ -12,6 +12,10 @@
 	Hello Trema!   # Ctrl-C to quit
 
 
+<!SLIDE center>
+![overview](hello_trema.png)
+
+
 <!SLIDE small>
 # One Basic Command: `trema run` ###############################################
 
