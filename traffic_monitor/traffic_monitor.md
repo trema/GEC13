@@ -91,7 +91,7 @@
 
 * You can define timer handlers like a class attribute
 * Don't need to implement timer handling by yourself using threads etc.
-* Another example of <i>convention over coding</i>
+* Another example of <i>coding by convention</i>
 
 
 <!SLIDE small>
