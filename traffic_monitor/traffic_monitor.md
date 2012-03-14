@@ -11,9 +11,9 @@
 
 
 	# (On another terminal,)
-	$ trema send_packet --source host1 --dest host2
-	$ trema send_packet --source host1 --dest host2
-	$ trema send_packet --source host2 --dest host1
+	$ trema send_packets --source host1 --dest host2
+	$ trema send_packets --source host1 --dest host2
+	$ trema send_packets --source host2 --dest host1
 
 * Launch a "L2 switch with traffic monitoring" controller
 * Send test packets randomly
