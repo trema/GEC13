@@ -36,5 +36,5 @@
 ## `trema` command
 
 
-<!SLIDE full-page>
+<!SLIDE center>
 ![overview](overview.png)
